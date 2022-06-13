@@ -1,7 +1,10 @@
 # Getting started with kubernetes on prem
 
 ## Abstract
-create an on-prem Kubernetes test cluster with vagrant and ansible.
+Provision an on-prem Kubernetes test cluster with vagrant and ansible.
+
+## Prerequisites
+`vagrant` `ansible` `virtualbox`
 
 ## Instructions
 
@@ -24,13 +27,14 @@ Once finished, create ssh tunnel with the Kubernetes master node:
 ssh -L localhost:8001:127.0.0.1:8001 vagrant@192.168.50.11
 ``` 
 
-Connect to the master node:  
+Connect to the master node via vagrant ssh utility:  
   
 ```console
 vagrant ssh k8s-m-1
 ```
 
-Now we will manually deploy Kubernetes dashboard. 
+Now we will manually deploy Kubernetes dashboard.
+<br>
 deploy it with the following command:  
 
 ```console
@@ -78,16 +82,24 @@ start proxy:
 ```console
 kubectl proxy
 ```
-open the browser to the dashboard UI and login with the generated token:
+Move to the local host, open the browser to the dashboard UI and login with the generated token:
 ```console
 firefox http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 ```
 Create our app deployment:
-click on the '+' sing on the top right and select create => form:
+click on the '+' sing on the top right and select create => form
+
 add the following data:
 
-check progress in workload
+![alt text](https://github.com/R3DRUN3/K8s-dev/blob/main/K8s-on-prem/images/k8s-dashboard-deployment.png)
 
-check the deployed app
+check progress in workload:
+![alt_text](https://github.com/R3DRUN3/K8s-dev/blob/main/K8s-on-prem/images/k8s-dashboard-workload.png)
+
+
+check the deployed app on the worker nodes:
+
+![alt_text](https://github.com/R3DRUN3/K8s-dev/blob/main/K8s-on-prem/images/container-app.png)
+
 
 
