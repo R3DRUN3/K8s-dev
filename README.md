@@ -9,4 +9,4 @@ Google originally designed Kubernetes, but the Cloud Native Computing Foundation
 
 ## Repo Rationale
 Kubernetes is famous for being quite complex to learn and master,
-this repository contains tutorials to get you started with Kubernetes.
+this repository contains scripts to get you started with Kubernetes.
