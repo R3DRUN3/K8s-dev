@@ -1,11 +1,18 @@
 # Getting started with Kubernetes on AWS
 
+<p><img width="180" height="180" src="https://github.com/yurijserrano/Github-Profile-Readme-Logos/blob/master/cloud/amazon.svg"></p>
+
+
+
+
+
+
 ## Abstract
 Amazon Elastic Kubernetes Service (*Amazon EKS*) is a managed service that you can use to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes. 
-Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.
 
 This repo contains IaC scripts for provisioning an EKS cluster on aws and deploy a flask web app on the cluster.
 The EKS cluster will have 2 worker nodes.
+<br>
 Adjust region and other variables inside configuration file to adapt the procedure to your needs.
 
 ## Prerequisites
