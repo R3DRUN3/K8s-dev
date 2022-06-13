@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-sample-flask-deployment
+  namespace: eks-sample-app
+  labels:
+    app: eks-sample-flask-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: eks-sample-flask-app
+  template:
+    metadata:
+      labels:
+        app: eks-sample-flask-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: evilapp
+        image: r3drun3/test_flask_web_app:v1 # Pinned docker hub image version
+        ports:
+        - name: http
+          containerPort: 5678 # Container flask port
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux
